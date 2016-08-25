@@ -1,16 +1,9 @@
-<section>      
+<section>
   <h2>Lista de Cards</h2>
-  
-  <p>     
-    <% @cards.each do |card|  %>  
-    <%=link_to(card.front, card)%>
+  <p>
+    <% @cards.each do |card|  %>
+    <%=link_to(card.front, card) %>
     <br><br>
-    <!--
-    <%=link_to(card.front, card_path(card.id))%>      
-    <# <a target="_blank" href="<%=card_path(card.id)%>"> <%= card.front %> </a> 
-    -->         
     <% end %>
   </p>
 </section>
-
-

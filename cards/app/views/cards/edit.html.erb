@@ -1,0 +1,16 @@
+<h1>Editar card</h1>
+<%= form_for(@card) do |f| %>
+  <div>
+    <%= f.label :front, "Frente" %>
+    <br>
+    <%= f.text_field :front %>
+    <br><br>
+  </div>
+  <div>
+    <%= f.label :back, "Verso" %>
+    <br>
+    <%= f.text_field :back %>
+    <br><br>
+  </div>
+    <%= f.submit "Atualizar" %>
+<%end%>
