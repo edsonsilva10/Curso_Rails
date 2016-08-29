@@ -1,7 +1,9 @@
+
 class CardsController < ApplicationController
   before_action :set_card, only: [:show,:edit,:update,:destroy]
 
   def show
+    @comment = Comment.new
   end
 
   def index
@@ -16,7 +18,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card.delete()
+    @card.destroy
     redirect_to cards_url
   end
 
@@ -27,13 +29,18 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_parameters)
-    card.save
-    redirect_to  @card
+    if @card.save
+      redirect_to  @card
+    else
+      flash[:alert] = "Faltou digitar o campo Frente :("
+      render :new
+    end
   end
+
 
   private
   def card_parameters
-    params.require(:card).permit(:front,:back)
+    params.require(:card).permit(:front,:back,:author)
   end
 
   def set_card

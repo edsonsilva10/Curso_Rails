@@ -1,16 +1,25 @@
+<h1><%=flash[:alert]%></h1>
+
 <h1>Novo card</h1>
 <%= form_for(@card) do |f| %>
-  <div>
+<p id="destaque">Digite uma palavra em português no campo "Frente" e a mesma palavra em ingês no campo "Verso".  </p>
+  <div><p>
     <%= f.label :front, "Frente" %>
     <br>
     <%= f.text_field :front %>
-    <br><br>
+    <br></p>
   </div>
-  <div>
+  <div><p>
     <%= f.label :back, "Verso" %>
     <br>
     <%= f.text_field :back %>
-    <br><br>
+    </p>
   </div>
+  <div>
+    <p><%= f.label :author, "Autor" %>
+    <br>
+    <%= f.text_field :author %></p>
+  </div>
+
     <%= f.submit "Enviar" %>
 <%end%>
